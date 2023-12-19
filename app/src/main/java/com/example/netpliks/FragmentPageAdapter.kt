@@ -14,9 +14,10 @@ class FragmentPageAdapter (
     }
 
     override fun createFragment(position: Int): Fragment {
-        return if (position == 0)
-            FirstFragment()
-        else
-            SecondFragment()
+        return when(position) {
+            0 -> FirstFragment()
+            1 -> SecondFragment()
+            else -> FirstFragment()
+        }
     }
 }

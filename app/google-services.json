@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "710679937807",
+    "project_id": "netpliksdisneyplusyak",
+    "storage_bucket": "netpliksdisneyplusyak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710679937807:android:01705064a16c21d68e347a",
+        "android_client_info": {
+          "package_name": "com.example.netpliks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB2oQxUzzbAJPrK8FgJvecmxMo_0guuVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

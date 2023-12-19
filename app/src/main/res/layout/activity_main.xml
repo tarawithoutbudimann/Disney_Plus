@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/TabLayout"
         app:tabMode="fixed"
         app:tabIndicatorGravity="stretch"
+        app:tabTextColor="@color/lightgray"
         app:tabIndicatorAnimationMode="elastic"
-        app:tabSelectedTextColor="@color/white"
+        app:tabSelectedTextColor="@color/darkblue"
         app:tabIndicatorColor="@null"
         app:tabIndicator="@drawable/tab_indicator"
         android:layout_width="0dp"

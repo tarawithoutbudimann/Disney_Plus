@@ -3,16 +3,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FirstFragment"
+    android:background="@drawable/bg"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="1st"
-        android:gravity="center"
-        android:textColor="@color/birumuda"
-        android:textStyle="bold"
-        android:textSize="22sp"/>
+        >
+        <TextView
+            android:id="@+id/logintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:text="Login"
+            android:textColor="@color/lightgray"
+            android:textSize="35sp"
+            android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/emailfield"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/logintext"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Email"
+                android:inputType="text"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/passwordf"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/emailfield"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_lock_open_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                app:endIconMode="password_toggle"/>
+
+
+        <CheckBox
+            android:id="@+id/ket1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordf"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="10dp"
+            android:text="Remember Me"
+            android:buttonTint="@color/primary"
+            android:textColor="@color/lightgray"
+            />
+        <TextView
+            android:id="@+id/ket2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordf"
+            android:textColor="@color/lightgray"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="300dp"
+            android:textSize="10dp"
+            android:text="Forgot Password ?"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ket1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="88dp"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/primary"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/newmem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_below="@id/login"
+            android:paddingLeft="45dp"
+            android:text="New Member ?"
+            android:textColor="@color/lightgray"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/register1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="17dp"
+            android:layout_marginTop="120dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginRight="50dp"
+            android:layout_below="@id/login"
+            android:layout_toRightOf="@+id/newmem"/>
+    </RelativeLayout>
 
 </FrameLayout>
