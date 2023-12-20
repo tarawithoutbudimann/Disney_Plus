@@ -6,24 +6,48 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".FirstFragment"
-            android:exported="false"/>
+            android:name=".FormAdd"
+            android:exported="false" />
         <activity
-            android:name=".SecondFragment"
-            android:exported="false"/>
-        <activity android:name=".Homepage"
-            android:exported="false"/>
+            android:name=".FormEdit"
+            android:exported="false" />
+        <activity
+            android:name=".EditData"
+            android:exported="false" />
+        <activity
+            android:name=".BottomNav"
+            android:exported="false" />
+        <activity
+            android:name=".HomepageAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".Film1"
+            android:exported="false" />
+        <activity
+            android:name=".Bookmark"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
+            android:name=".editmovie"
+            android:exported="false" />
+        <activity
+            android:name=".addmovie"
+            android:exported="false" />
+        <activity
+            android:name=".AllMovie"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

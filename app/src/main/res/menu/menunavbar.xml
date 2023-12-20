@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Homepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="All"
+        android:icon="@drawable/baseline_home_24"/>
+    <item
+        android:id="@+id/Bookmarkk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Search"
+        android:icon="@drawable/baseline_bookmarks_24"/>
+    <item
+        android:id="@+id/Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Payment"
+        android:icon="@drawable/baseline_account_circle_24"/>
+</menu>

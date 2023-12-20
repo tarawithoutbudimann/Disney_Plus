@@ -32,7 +32,7 @@ class FirstFragment : Fragment() {
         with(binding) {
             login.setOnClickListener {
                 val intentToSecondFragment =
-                    Intent(requireContext(), Homepage::class.java)
+                    Intent(requireContext(), BottomNav::class.java)
                 intentToSecondFragment.putExtra(EXTRA_NAME, emailfield.text.toString())
                 intentToSecondFragment.putExtra(EXTRA_PASS, passwordf.text.toString())
                 startActivity(intentToSecondFragment)

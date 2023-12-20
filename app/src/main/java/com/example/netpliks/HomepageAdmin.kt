@@ -1,12 +1,11 @@
 package com.example.netpliks
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 
-class Homepage : AppCompatActivity(){
+class HomepageAdmin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_homepage)
+        setContentView(R.layout.activity_homepage_admin)
     }
-
 }

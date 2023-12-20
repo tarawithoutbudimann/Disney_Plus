@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:background="@drawable/bgtext"
+        android:orientation="horizontal"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardgambar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/gambarrr"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/asih"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/titlef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title Film"
+                android:layout_marginLeft="15dp"/>
+            <TextView
+                android:id="@+id/directorf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Director"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+            <TextView
+                android:id="@+id/writerf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Writer"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+            <TextView
+                android:id="@+id/ratingf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:id="@+id/sinopf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sinopsis"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/delbutton"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/baseline_delete_sweep_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bgtext"/>
+
+        <ImageButton
+            android:id="@+id/editbutton"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_edit_24"
+            android:background="@drawable/bgtext"/>
+    </LinearLayout>
+
+</LinearLayout>
