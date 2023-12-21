@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AddMovie"
-    android:layout_marginHorizontal="10dp">
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/bg">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardgambar"
         android:layout_width="wrap_content"
@@ -179,86 +180,4 @@
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    android:layout_margin="16dp"-->
-<!--    android:backgroundTint="@color/gray"-->
-<!--    app:cardCornerRadius="15dp">-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="16dp">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/titleTaskTxt"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            android:text="New Movie"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="24sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/closeImg"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_gravity="bottom|end"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="28dp"-->
-<!--            android:src="@drawable/baseline_close_24"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/titleTaskTxt" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextTitle"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Title" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextDirector"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Director" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextWriter"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Writer" />-->
-
-<!--        <RatingBar-->
-<!--            android:id="@+id/ratingBar"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:layout_marginBottom="16dp"-->
-<!--            android:numStars="5"-->
-<!--            android:stepSize="0.5" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextSynopsis"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Synopsis"-->
-<!--            android:inputType="textMultiLine"-->
-<!--            android:maxLines="5" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/buttonAddFilm"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="Add Film" />-->
-
-<!--    </LinearLayout>-->
-<!--</androidx.cardview.widget.CardView>-->
+</androidx.appcompat.widget.LinearLayoutCompat>

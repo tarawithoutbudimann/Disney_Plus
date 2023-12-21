@@ -8,7 +8,7 @@
     android:layout_marginHorizontal="10dp"
     android:background="@drawable/bg">
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardgambar"
+        android:id="@+id/cardgambar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,20 +20,20 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/titleTaskTxt"
+                android:id="@+id/titleTaskTxt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="New Movie"
+                android:text="Edit Movie"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/closeImg"
+                android:id="@+id/closeImg1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
@@ -41,26 +41,25 @@
                 android:src="@drawable/baseline_close_24" />
 
             <View
-                android:id="@+id/viewHLine"
+                android:id="@+id/viewHLine1"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_below="@id/titleTaskTxt"
+                android:layout_below="@id/titleTaskTxt1"
                 android:background="@color/lightgray" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewHLine"
+                android:layout_below="@id/viewHLine1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="8dp"
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/titlefield"
+                    android:id="@+id/titlefield1"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:layout_below="@+id/logintext"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="30dp"
@@ -81,10 +80,9 @@
                     android:maxLines="5"/>
 
                 <EditText
-                    android:id="@+id/directorfield"
+                    android:id="@+id/directorfield1"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:layout_below="@+id/logintext"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="30dp"
@@ -105,10 +103,9 @@
                     android:maxLines="5"/>
 
                 <EditText
-                    android:id="@+id/writerfield"
+                    android:id="@+id/writerfield1"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
-                    android:layout_below="@+id/logintext"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="30dp"
@@ -128,7 +125,7 @@
                     android:lines="5"
                     android:maxLines="5"/>
                 <EditText
-                    android:id="@+id/ratingfield"
+                    android:id="@+id/ratingfield1"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="10dp"
@@ -148,7 +145,7 @@
                     android:lines="5"
                     android:maxLines="5"/>
                 <EditText
-                    android:id="@+id/sinopsisfield"
+                    android:id="@+id/sinopsisfield1"
                     android:layout_width="350dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="10dp"
@@ -166,7 +163,7 @@
                     android:lines="5"
                     android:maxLines="5"/>
                 <Button
-                    android:id="@+id/savemovie"
+                    android:id="@+id/editmovie"
                     android:layout_width="200dp"
                     android:layout_height="75dp"
                     android:layout_gravity="center"
@@ -174,7 +171,7 @@
                     android:layout_marginTop="6dp"
                     android:backgroundTint="@color/darkblue"
                     android:textColor="@color/lightgray"
-                    android:text="Save Movie"
+                    android:text="Edit Movie"
                     android:textStyle="bold"
                     android:textSize="16dp" />
             </LinearLayout>
