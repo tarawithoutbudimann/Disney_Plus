@@ -52,9 +52,7 @@ class SecondFragment : Fragment() {
     private fun addUsers(users: Users){
         usersCollectionsRef.add(users)
             .addOnSuccessListener { documentReference ->
-                // You don't need to set the data again, as it is already added with the document reference
                 val createUsersId = documentReference.id
-                // If you want to update the user ID in the Users object, you can do it here
                 users.id = createUsersId
                 documentReference.set(users)
             }
