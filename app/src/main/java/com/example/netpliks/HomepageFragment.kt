@@ -2,6 +2,8 @@ package com.example.netpliks
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,8 +39,14 @@ class HomepageFragment : Fragment() {
         val imageSliderAdapter = ImageSliderAdapter(images)
         viewPager.adapter = imageSliderAdapter
 
-        val timer = Timer()
-        timer.scheduleAtFixedRate(ImageSliderTimer(images.size), 2000, 3000)
+        // Using Handler and postDelayed for periodic task instead of Timer
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                viewPager.currentItem = (viewPager.currentItem + 1) % images.size
+                handler.postDelayed(this, 3000)
+            }
+        }, 2000)
 
         // Mendapatkan nama pengguna dari Arguments
         val username = arguments?.getString(FirstFragment.EXTRA_NAME)
@@ -55,11 +63,4 @@ class HomepageFragment : Fragment() {
         }
     }
 
-    private inner class ImageSliderTimer(val numPages: Int) : TimerTask() {
-        override fun run() {
-            requireActivity().runOnUiThread {
-                viewPager.currentItem = (viewPager.currentItem + 1) % numPages
-            }
-        }
-    }
 }

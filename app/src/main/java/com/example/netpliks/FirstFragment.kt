@@ -6,12 +6,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.netpliks.databinding.FragmentFirstBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
+    private val firestore = FirebaseFirestore.getInstance()
+    private val usersCollectionsRef = firestore.collection("Users")
+
     companion object {
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_PASS = "extra_pass"
@@ -31,11 +36,16 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             login.setOnClickListener {
-                val intentToSecondFragment =
-                    Intent(requireContext(), BottomNav::class.java)
-                intentToSecondFragment.putExtra(EXTRA_NAME, emailfield.text.toString())
-                intentToSecondFragment.putExtra(EXTRA_PASS, passwordf.text.toString())
-                startActivity(intentToSecondFragment)
+                val username =  usernamefield.text.toString()
+                val password =  passwordf.text.toString()
+                loginUser (username, password)
+
+
+//                val intentToSecondFragment =
+//                    Intent(requireContext(), BottomNav::class.java)
+//                intentToSecondFragment.putExtra(EXTRA_NAME, usernamefield.text.toString())
+//                intentToSecondFragment.putExtra(EXTRA_PASS, passwordf.text.toString())
+//                startActivity(intentToSecondFragment)
             }
             register1.setOnClickListener{
                 val resultIntent =
@@ -44,4 +54,58 @@ class FirstFragment : Fragment() {
             }
         }
     }
+//    private fun loginUser(username: String, password: String) {
+//        usersCollectionsRef
+//            .whereEqualTo("name", username)
+//            .whereEqualTo("password", password)
+//            .get()
+//            .addOnSuccessListener { documents ->
+//                if (!documents.isEmpty) {
+//                    // User credentials are valid, navigate to the next fragment or perform desired action.
+//                    val intentToSecondFragment =
+//                        Intent(requireContext(), BottomNav::class.java)
+//                    startActivity(intentToSecondFragment)
+//                } else {
+//                    // User credentials are invalid, show an error message or take appropriate action.
+//                    Log.d("Login", "Invalid username or password")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                // Handle failures such as network errors or Firestore exceptions.
+//                Log.e("Login", "Error during login", exception)
+//            }
+//    }
+    private fun loginUser(username: String, password: String) {
+        if (username.isBlank() || password.isBlank()) {
+            // Jika username atau password kosong, tampilkan pesan toast.
+            Toast.makeText(requireContext(), "Please fill the field", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        usersCollectionsRef
+            .whereEqualTo("name", username)
+            .whereEqualTo("password", password)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    // User credentials are valid, navigate to the next fragment or perform desired action.
+                    val intentToSecondFragment =
+                        Intent(requireContext(), BottomNav::class.java)
+                    startActivity(intentToSecondFragment)
+                } else {
+                    // User credentials are invalid, show an error message or take appropriate action.
+                    Toast.makeText(
+                        requireContext(),
+                        "Username or password doesn't match. Try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle failures such as network errors or Firestore exceptions.
+                Log.e("Login", "Error during login", exception)
+            }
+    }
+
+
 }

@@ -13,15 +13,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".FormAdd"
-            android:exported="false" />
-        <activity
-            android:name=".FormEdit"
-            android:exported="false" />
-        <activity
-            android:name=".EditData"
-            android:exported="false" />
-        <activity
             android:name=".BottomNav"
             android:exported="false" />
         <activity
@@ -35,12 +26,6 @@
             android:exported="false" />
         <activity
             android:name=".profile"
-            android:exported="false" />
-        <activity
-            android:name=".editmovie"
-            android:exported="false" />
-        <activity
-            android:name=".addmovie"
             android:exported="false" />
         <activity
             android:name=".AllMovie"

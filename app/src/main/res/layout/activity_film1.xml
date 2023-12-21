@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllMovie">
+    tools:context=".AllMovie"
+    android:background="@drawable/bg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:layout_marginTop="40dp"
             android:clickable="true"
             android:onClick="backToHomepage"
+            android:tint="@color/lightgray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
@@ -28,7 +30,7 @@
             android:text="Movie Details"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/lightgray"
             android:layout_marginTop="35sp"
             app:layout_constraintStart_toEndOf="@+id/backtoall"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +113,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Anabelle"
-            android:textColor="@color/black"
+            android:textColor="@color/lightgray"
             android:textSize="35sp"
             android:layout_marginTop="25dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,13 +143,13 @@
             app:layout_constraintTop_toBottomOf="@id/judulanabelle"
             app:layout_constraintLeft_toRightOf="@id/judulanabelle"
             tools:ignore="MissingConstraints"
-            android:backgroundTint="@color/black"/>
+            android:backgroundTint="@color/lightgray"/>
         <TextView
             android:id="@+id/sinop1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In Santa Monica, California, Mia and John Gordon are happily married and Mia is pregnant. John is concluding the medical school and does not have much time to give attention to his beloved wife, so he buys an ancient and rare doll named Annabelle for her collection. But soon their next door neighbors are attacked by two members of a satanic cult that break in their house and attack them after killing the neighbors. Mia and John are saved by the police officers and Mia needs to rest until the delivery. But there is a fire in their house and Mia early delivers a baby girl, Leah. The family moves to an apartment in Pasadena but first Mia throws the doll Annabelle away in the garbage. However she finds the doll in a box while unpacking things in her new home. Weird things happen to Mia and she befriends Evelyn, who works in a bookstore, and she learns about an evil cult that wants Leah's soul. When John and Mia summons Father Perez to help them with Annabelle, evil is stronger than the priest and he is sent injured to the hospital. Who may save Leah's soul now?"
-            android:textColor="@color/black"
+            android:textColor="@color/lightgray"
             android:textSize="15sp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -163,8 +165,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:background="@drawable/buttonregister"
-            android:text="Booked Now!"
+            android:text="Bookmark"
             android:textColor="@color/white"
+            android:drawableLeft="@drawable/baseline_bookmarks_24"
+            android:drawableTint="@color/lightgray"
             android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/sinop1"
