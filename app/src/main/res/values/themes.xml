@@ -5,7 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:statusBarColor">@color/black</item>
     </style>
-
+    <style name="ShapeAppearanceOverlay.MyApp.FAB" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">15dp</item>
+    </style>
     <style name="Theme.TodoApp" parent="Base.Theme.Netpliks" />
 
     <style name="CardViewStyle" parent="Widget.Material3.CardView.Filled">
