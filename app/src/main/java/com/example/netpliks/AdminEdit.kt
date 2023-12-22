@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayoutStates.TAG
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.netpliks.databinding.EditmovieBinding
+import com.google.firebase.Firebase
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
@@ -30,6 +33,8 @@ class AdminEdit: AppCompatActivity() {
             }
         }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = EditmovieBinding.inflate(layoutInflater)
@@ -44,8 +49,8 @@ class AdminEdit: AppCompatActivity() {
         val writer = binding.writerfield1
         val rating = binding.ratingfield1
         val sinopsis = binding.sinopsisfield1
-
         val originalImageUrl = intent.getStringExtra("imgId")
+
         Glide.with(this)
             .load(originalImageUrl)
             .skipMemoryCache(true)
@@ -54,7 +59,7 @@ class AdminEdit: AppCompatActivity() {
 
         title.setText(intent.getStringExtra("title"))
         director.setText(intent.getStringExtra("director"))
-        writer.setText(intent.getStringExtra("writter"))
+        writer.setText(intent.getStringExtra("writer"))
         rating.setText(intent.getStringExtra("rating"))
         sinopsis.setText(intent.getStringExtra("sinopsis"))
 
@@ -80,18 +85,26 @@ class AdminEdit: AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("Film")
 
         if (imageUri != null) {
+
+
             // Generate a unique ID for the image
-            val imageId = Uri.parse(intent.getStringExtra("imgId")).lastPathSegment?.removePrefix("images/")
+
 
             // Upload image to Firebase Storage with the generated ID
-            storageReference = FirebaseStorage.getInstance().reference.child("images/$imageId")
-            val uploadTask: UploadTask = storageReference.putFile(imageUri)
+            // Assuming you have a DatabaseReference reference initialized
+            val newItemRef = database.push() // Generates a unique key
+            val imageId = newItemRef.key // Retrieve the generated key
+            Log.d("tarates", "$imageId")
+            Log.d("tarates1", "${intent.getStringExtra("imgId")}")
 
+            storageReference = FirebaseStorage.getInstance().getReference("images/$imageId")
+
+            val uploadTask: UploadTask = storageReference.putFile(imageUri)
 
             uploadTask.addOnSuccessListener {
                 // Image uploaded successfully, now get the download URL
                 storageReference.downloadUrl.addOnSuccessListener { imageUrl ->
-                    val item = Admin(
+                    val item = Film(
                         updatedTitle,
                         updatedDirector,
                         updatedWriter,
@@ -99,8 +112,9 @@ class AdminEdit: AppCompatActivity() {
                         updatedSinopsis,
                         imageUrl.toString()
                     )
-                    database.child(imageId!!).setValue(item)
-                        .addOnCompleteListener {
+
+                    updataData(item, updatedTitle)
+
                             // Handle completion, e.g., show a success message
                             Toast.makeText(this, "Data Uploaded Successfully", Toast.LENGTH_SHORT).show()
 
@@ -110,10 +124,6 @@ class AdminEdit: AppCompatActivity() {
 
                             // Finish current activity
                             finish()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Adding Data Failed!", Toast.LENGTH_SHORT).show()
-                        }
                 }
             }.addOnFailureListener {
                 Toast.makeText(this, "Image Upload Failed!", Toast.LENGTH_SHORT).show()
@@ -129,7 +139,7 @@ class AdminEdit: AppCompatActivity() {
             val updatedList = mapOf(
                 "title" to updatedTitle,
                 "director" to updatedDirector,
-                "writter" to updatedWriter,
+                "writer" to updatedWriter,
                 "rating" to updatedRating,
                 "sinopsis" to updatedSinopsis
             )
@@ -152,4 +162,43 @@ class AdminEdit: AppCompatActivity() {
                 }
         }
     }
+
+    private fun updataData(item: Film, title: String) {
+        val db = FirebaseFirestore.getInstance()
+
+        // Step 1: Retrieve the document(s) that match the condition
+        db.collection("movies")
+            .whereEqualTo("judul", title)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    for (document in task.result!!) {
+                        // Step 2: Update the retrieved document(s) with the new data
+                        val docRef = db.collection("movies").document(document.id)
+
+                        // You can update specific fields using a Map
+                        val updates = mapOf(
+                            "judul" to item.judul,
+                            "director" to item.director,
+                            "writer" to item.writer,
+                            "rating" to item.rating,
+                            "sinopsis" to item.sinopsis,
+                            "imageUrl" to item.imageUrl,
+                        )
+
+                        docRef.update(updates)
+                            .addOnSuccessListener {
+                                // Step 3: Commit the changes back to Firestore
+                                Log.d(TAG, "DocumentSnapshot successfully updated!")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w(TAG, "Error updating document", e)
+                            }
+                    }
+                } else {
+                    Log.w(TAG, "Error getting documents.", task.exception)
+                }
+            }
+    }
+
 }

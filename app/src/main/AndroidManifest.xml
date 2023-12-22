@@ -25,9 +25,6 @@
             android:name=".AdminEdit"
             android:exported="false" />
         <activity
-            android:name=".AddMovie"
-            android:exported="false" />
-        <activity
             android:name=".BottomNav"
             android:exported="false" />
         <activity

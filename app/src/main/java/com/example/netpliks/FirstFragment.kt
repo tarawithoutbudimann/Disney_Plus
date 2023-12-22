@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.netpliks.databinding.FragmentFirstBinding
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private lateinit var auth : FirebaseAuth
 
     companion object {
         const val EXTRA_NAME = "extra_name"
@@ -26,6 +28,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
+        auth = Firebase.auth
         return binding.root
     }
 
@@ -61,8 +64,14 @@ class FirstFragment : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Login berhasil
-                    val intentToHomepage = Intent(requireContext(), HomepageAdmin::class.java)
-                    startActivity(intentToHomepage)
+                    if (auth.currentUser!!.email == "syahadmin@gmail.com"){
+                        val intentToHomepage = Intent(requireContext(), HomepageAdmin::class.java)
+                        startActivity(intentToHomepage)
+                    } else {
+                        val intentToHomepage = Intent(requireContext(), BottomNav::class.java)
+                        startActivity(intentToHomepage)
+                    }
+
                 } else {
                     // Login gagal, tampilkan pesan kesalahan
                     Toast.makeText(

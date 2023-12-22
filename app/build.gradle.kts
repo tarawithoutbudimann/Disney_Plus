@@ -63,4 +63,7 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.firebase:firebase-appcheck-safetynet:16.1.2")
+    implementation ("com.google.firebase:firebase-firestore:24.0.0")
+//    implementation ("com.firebaseui:firebase-ui-firestore:7.2.2")
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.0")
 }
