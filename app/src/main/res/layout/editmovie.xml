@@ -163,6 +163,20 @@
                     android:lines="5"
                     android:maxLines="5"/>
                 <Button
+                    android:id="@+id/uploadimage2"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose File"/>
+
+                <ImageView
+                    android:id="@+id/imgedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp">
+                </ImageView>
+
+                <Button
                     android:id="@+id/editmovie"
                     android:layout_width="200dp"
                     android:layout_height="75dp"
@@ -174,6 +188,7 @@
                     android:text="Edit Movie"
                     android:textStyle="bold"
                     android:textSize="16dp" />
+
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

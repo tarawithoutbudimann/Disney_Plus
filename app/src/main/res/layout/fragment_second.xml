@@ -6,162 +6,179 @@
     tools:context=".SecondFragment"
     android:background="@drawable/bg">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/registext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:text="Register"
-            android:textColor="@color/lightgray"
-            android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/unnamef"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/registext"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/bgtext"
-            android:backgroundTint="#F5F5F5"
-            android:drawableLeft="@drawable/baseline_alternate_email_24"
-            android:drawableTint="@color/gray"
-            android:drawablePadding="25dp"
-            android:hint="Username"
-            android:inputType="text"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
-
-        <EditText
-            android:id="@+id/emailregist"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/unnamef"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/bgtext"
-            android:backgroundTint="#F5F5F5"
-            android:drawableLeft="@drawable/baseline_email_24"
-            android:drawableTint="@color/gray"
-            android:drawablePadding="25dp"
-            android:hint="Email"
-            android:inputType="text"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
-
-        <EditText
-            android:id="@+id/phone"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/emailregist"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/bgtext"
-            android:backgroundTint="#F5F5F5"
-            android:drawableLeft="@drawable/baseline_local_phone_24"
-            android:drawableTint="@color/gray"
-            android:drawablePadding="25dp"
-            android:hint="Phone"
-            android:inputType="text"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/phone"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/bgtext"
-            android:backgroundTint="#F5F5F5"
-            android:drawableLeft="@drawable/baseline_lock_open_24"
-            android:drawableTint="@color/gray"
-            android:drawablePadding="25dp"
-            android:hint="Password"
-            android:inputType="text"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
-
-        <CheckBox
-            android:id="@+id/keterangan1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/password"
-            android:buttonTint="@color/primary"
-            android:layout_centerHorizontal="true"
-            android:textSize="10dp"
-            android:text="By checking the box you agree to our Terms and Conditions."
-            android:textColor="@color/lightgray"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/registerbutton"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/keterangan1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/primary"
-            android:text="Register"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:background="@drawable/button"
-            />
-        <TextView
-            android:id="@id/ketbawah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/registerbutton"
-            android:paddingLeft="5dp"
-            android:text="Already Have an Account ?"
-            android:textColor="@color/lightgray"
-            android:textSize="17dp" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/login10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log in"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_below="@id/registerbutton"
-            android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/ketbawah"
-            android:paddingLeft="25dp"
-            />
+            <TextView
+                android:id="@+id/registext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:text="Register"
+                android:textColor="@color/lightgray"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
-    </RelativeLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/unnamef"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/registext"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_alternate_email_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Username"
+                android:inputType="text"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/emailregist"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/unnamef"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Email"
+                android:inputType="text"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/emailregist"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_local_phone_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Phone"
+                android:inputType="text"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/phone"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:drawableLeft="@drawable/baseline_lock_open_24"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="25dp"
+                android:hint="Password"
+                android:inputType="text"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/keterangan1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password"
+                android:buttonTint="@color/primary"
+                android:layout_centerHorizontal="true"
+                android:textSize="10dp"
+                android:text="By checking the box you agree to our Terms and Conditions."
+                android:textColor="@color/lightgray"
+                />
+
+            <!-- Spinner untuk memilih Admin atau User -->
+            <Spinner
+                android:id="@+id/userTypeSpinner"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/keterangan1"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bgtext"
+                android:backgroundTint="#F5F5F5"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/registerbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userTypeSpinner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/primary"
+                android:text="Register"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/button"
+                />
+            <TextView
+                android:id="@id/ketbawah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/registerbutton"
+                android:paddingLeft="5dp"
+                android:text="Already Have an Account ?"
+                android:textColor="@color/lightgray"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/login10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log in"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_below="@id/registerbutton"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@+id/ketbawah"
+                android:paddingLeft="25dp"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

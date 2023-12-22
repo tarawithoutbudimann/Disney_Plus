@@ -9,21 +9,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.netpliks.databinding.FragmentFirstBinding
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
 
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
-    private val firestore = FirebaseFirestore.getInstance()
-    private val usersCollectionsRef = firestore.collection("Users")
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     companion object {
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_PASS = "extra_pass"
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -36,15 +31,19 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupClickListeners()
+    }
+
+    private fun setupClickListeners() {
         with(binding) {
             login.setOnClickListener {
                 val username = usernamefield.text.toString()
                 val password = passwordf.text.toString()
                 loginUser(username, password)
             }
+
             register1.setOnClickListener {
-                val resultIntent =
-                    Intent(requireContext(), SecondFragment::class.java)
+                val resultIntent = Intent(requireContext(), SecondFragment::class.java)
                 startActivity(resultIntent)
             }
         }
@@ -56,39 +55,22 @@ class FirstFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show()
             return
         }
-        usersCollectionsRef
-            .whereEqualTo("name", username)
-            .whereEqualTo("password", password)
-            .get()
-            .addOnSuccessListener { documents ->
-                if (!documents.isEmpty) {
-                    val userDoc = documents.documents[0]
-                    val userType = userDoc.getString("userType")
 
-                    // Check if the user is admin1
-                    if (username == "admin1") {
-                        // If the user is admin1, direct to HomepageAdmin
-                        val intentToAdminHome =
-                            Intent(requireContext(), HomepageAdmin::class.java)
-                        startActivity(intentToAdminHome)
-                    } else {
-                        // For other users, direct to Homepage
-                        val intentToHomepage =
-                            Intent(requireContext(), BottomNav::class.java)
-                        startActivity(intentToHomepage)
-                    }
+        // Login user menggunakan Firebase Authentication
+        auth.signInWithEmailAndPassword(username, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Login berhasil
+                    val intentToHomepage = Intent(requireContext(), HomepageAdmin::class.java)
+                    startActivity(intentToHomepage)
                 } else {
-                    // User credentials are invalid, show an error message or take appropriate action.
+                    // Login gagal, tampilkan pesan kesalahan
                     Toast.makeText(
                         requireContext(),
                         "Username or password doesn't match. Try again.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            }
-            .addOnFailureListener { exception ->
-                // Handle failures such as network errors or Firestore exceptions.
-                Log.e("Login", "Error during login", exception)
             }
     }
 }

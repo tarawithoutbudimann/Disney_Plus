@@ -3,10 +3,9 @@ package com.example.netpliks
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AddMovie : AppCompatActivity() {
+class comingsoon : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.addmovie)
-
+        setContentView(R.layout.activity_comingsoon)
     }
 }

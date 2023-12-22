@@ -2,16 +2,14 @@ package com.example.netpliks
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.netpliks.databinding.FragmentHomepageBinding
-import java.util.Timer
-import java.util.TimerTask
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class HomepageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
@@ -23,6 +21,8 @@ class HomepageFragment : Fragment() {
         R.drawable.slider4,
         R.drawable.slider5
     )
+
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,28 +39,29 @@ class HomepageFragment : Fragment() {
         val imageSliderAdapter = ImageSliderAdapter(images)
         viewPager.adapter = imageSliderAdapter
 
-        // Using Handler and postDelayed for periodic task instead of Timer
-        val handler = Handler(Looper.getMainLooper())
-        handler.postDelayed(object : Runnable {
-            override fun run() {
-                viewPager.currentItem = (viewPager.currentItem + 1) % images.size
-                handler.postDelayed(this, 3000)
-            }
-        }, 2000)
+        // Set auto-scroll with a 3-second delay between slides
+        viewPager.postDelayed({
+            viewPager.currentItem = (viewPager.currentItem + 1) % images.size
+        }, 3000)
 
-        // Mendapatkan nama pengguna dari Arguments
-        val username = arguments?.getString(FirstFragment.EXTRA_NAME)
+        // Check if a user is already authenticated
+        val currentUser: FirebaseUser? = auth.currentUser
 
-        // Menampilkan pesan selamat datang
-        username?.let {
-            binding.welcomeMessage.text = "Hello, $username!"
+        // If a user is authenticated, display a welcome message
+        currentUser?.let {
+            binding.welcomeMessage.text = "Hello, ${it.displayName}!"
         }
 
         binding.selengkapnya.setOnClickListener {
-            // Menggunakan requireActivity() untuk mendapatkan Activity yang terkait dengan Fragment
-            val intent = Intent(requireContext(), AllMovie::class.java)
-            startActivity(intent)
+            // If a user is not authenticated, direct to login activity
+            if (currentUser == null) {
+                val intent = Intent(requireContext(), FirstFragment::class.java)
+                startActivity(intent)
+            } else {
+                // If a user is authenticated, direct to AllMovie activity
+                val intent = Intent(requireContext(), AllMovie::class.java)
+                startActivity(intent)
+            }
         }
     }
-
 }

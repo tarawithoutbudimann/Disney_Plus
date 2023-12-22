@@ -1,9 +1,10 @@
 package com.example.netpliks
 
 data class Users(
-    var id : String = "",
-    var name : String = "",
-    var email : String = "",
-    var phone : String = "",
-    var password : String = ""
+    val id: String = "",
+    val name: String = "",
+    val email: String = "",
+    val phone: String = "",
+    val userType: String = ""
 )
+
