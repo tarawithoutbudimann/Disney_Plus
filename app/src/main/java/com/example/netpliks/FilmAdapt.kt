@@ -61,7 +61,6 @@ class FilmAdapt(private val Filmlist: ArrayList<Film>) :
                 .addOnFailureListener {
                     Log.d("MainActivity", "Error deleting budget: ", it)
                 }
-
         }
     }
 
